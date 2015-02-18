@@ -84,6 +84,12 @@ var module = angular.module('module', [])
     };    
 }])
 
+
+// Make a directive for a table row that includes an input for a number.  Use a filter on it that 
+// restricts to numbers and keeps the value between the set params (such as 1 to 100).
+// Each directive should keep its own model value (number) and include a getter but not setter.
+// Make a second directive that keeps a running total for all rows.  
+
 .directive('testDirective', function () {
     // Just a very simple directive to use for scope example
     // Returns the Directive Definition Object
@@ -241,6 +247,15 @@ var module = angular.module('module', [])
     return input.toUpperCase();
   }
 })
+
+
+
+// Make a directive for a table row that includes an input for a number.  Use a filter on it that 
+// restricts to numbers and keeps the value between the set params (such as 1 to 100).
+// Each directive should keep its own model value (number) and include a getter but not setter.
+// Make a second directive that keeps a running total for all rows.  
+
+
 
 // https://github.com/angular/angular.js/wiki/Understanding-Directives
 // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
