@@ -1,10 +1,44 @@
 // Create a new object that just contains the passed in value as a member variable
+// This is a good way to simulate a class with members, figure out how to do private vars
+// and inheritance (really just sharing)
+// 
+
+//  TableRow constructor function
 function TableRow (text) {
-  this.content = text
+  var mylen = text.length;     // private var
+  this.content = text;
+  this.len = mylen.toString() + " chars.";
   this.showMe = function () {
     return '|*' + this.content + '*|'
   }
 }
+
+function TableElement (text, inherit) {
+  this.item = text;
+  this.__proto__ = inherit;   // supported in Firefox, Chrome, and IE 11, 
+                              // standard in upcoming ECMA6.  THis is faster than using .prototype
+                              // http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
+  this.showMe = function () {
+    return '(' + this.item + ')';
+  }
+  this.showAll = function () {
+    return '(' + this.item + ')' + this.__proto__.showMe();  // specifically call a method on super
+  }  
+  this.showLength = function () {
+    return this.len;   // goes up the proto chain to get this property
+  }
+}
+
+var firstTR = new TableRow('It all starts here');
+var firstElement = new TableElement ('a Cell of data', firstTR);  // inheritance happens here
+console.log ('Inheritance testing:');
+console.log (firstTR.mylen);             // undefined, private var
+console.log (firstElement.item);         // a public property on the object
+console.log (firstElement.showMe());     // call "instance method" on the object
+console.log (firstElement.showAll());    // instance method that accesses up the proto chain
+console.log (firstElement.showLength()); // instance method that accesses up the proto chain
+console.log ('***  End  ***');
+
 
 var module = angular.module('module', [])
 
