@@ -9,9 +9,9 @@
 //  TableRow constructor function
 function TableRow (text) {
   var mylen = text.length;     // private var
-  this.content = text;
-  this.len = mylen.toString() + " chars.";
-  this.showMe = function () {
+  this.content = text;         // instance var
+  this.len = mylen.toString() + " chars.";  
+  this.showMe = function () {  // instance method
     return '|*' + this.content + '*|'
   }
 }
@@ -46,19 +46,26 @@ console.log ('***  End  ***');
 // END JAVASCRIPT OO EXAMPLE
 
 
-var module = angular.module('module', [])
 
-.controller('Controller1', ['$scope', function ($scope) {
+angular.module('module', [])
+
+
+
+//  Better to use the controller as view syntax instead of setting a controller for a div
+//  https://github.com/johnpapa/angularjs-styleguide#table-of-contents       ****  STYLE GUIDE
+.controller('Controller1', ['$scope', function ($scope) { 
   // ** You can define a controller for a div or element.
   // ** You can also define a controller for a directive, and then inject that into other directives:
   // ** http://www.bennadel.com/blog/2446-using-controllers-in-directives-in-angularjs.htm
   // ** http://www.bennadel.com/blog/2709-directive-controllers-can-use-dependency-injection-in-angularjs.htm
   // ** http://icelab.com.au/articles/an-all-in-one-directive-controller-with-angularjs/
+  // NOTE:  better to use a named function here and use a ViewModel var instead of injecting $scope (see style guide)
   $scope.butter = "Test Me!!"
   $scope.bread = new TableRow('bread')
   //console.log ($scope.bread.content)
 }])
 .controller('Controller2', ['$scope', function ($scope) {
+  // NOTE:  better to bind these model vars to a ViewModel var instead of $scope, as in style guide.
   $scope.butter = "Test Two!"
   $scope.cream = 'Cherry Cream'
   $scope.items = ['Ferrari', 'Sunglasses', 'Badge']
@@ -134,7 +141,8 @@ var module = angular.module('module', [])
 // restricts to numbers and keeps the value between the set params (such as 1 to 100).
 // Each directive should keep its own model value (number) and include a getter but not setter.
 // Make a second directive that keeps a running total for all rows.  
-
+// NOTE:  directives make more sense as components or widgets, and to do all DOM manipulation in a
+//        directive.
 .directive('testDirective', function () {
   // Just a very simple directive to use for scope example
   // Returns the Directive Definition Object
@@ -300,7 +308,63 @@ var module = angular.module('module', [])
 // Each directive should keep its own model value (number) and include a getter but not setter.
 // Make a second directive that keeps a running total for all rows.  
 
+// Create a standard directive template by creating something that works in a table (for each row and data elements), for
+// custom headers, and for the whole table itself to be like a template. 
+// Also create a "widget", such as a simple input field with validation, add multiples to a page in different places,
+// And then create a directive that aggregates those individual widgets in some way (such as totaling).  Let this directive
+// query all the others for their results.  With all this, I will have some very useable software components.
 
+// A great sample directive from John Papa Style guide:  https://github.com/johnpapa/angularjs-styleguide#style-y075
+// https://github.com/johnpapa/angularjs-styleguide#style-y076
+// Generally you will have a link function or a controller but not both.
+// Controller code runs before compilation of the HTML, link runs after.
+// http://jasonmore.net/angular-js-directives-difference-controller-link/
+// https://docs.angularjs.org/guide/directive 
+    // <div my-example max="77"></div>
+    // angular
+    //     .module('app')
+    //     .directive('myExample', myExample);
+
+    // function myExample() {
+    //     var directive = {
+    //         restrict: 'EA',
+    //         templateUrl: 'app/feature/example.directive.html',
+    //         scope: {
+    //             max: '='
+    //         },
+    //         link: linkFunc,
+    //         controller: ExampleController,
+    //           controllerAs: 'vm',
+    //           bindToController: true // because the scope is isolated
+    //       };
+
+    //     return directive;
+
+    //     function linkFunc(scope, el, attr, ctrl) {
+    //         console.log('LINK: scope.min = %s *** should be undefined', scope.min);
+    //         console.log('LINK: scope.max = %s *** should be undefined', scope.max);
+    //         console.log('LINK: scope.vm.min = %s', scope.vm.min);
+    //         console.log('LINK: scope.vm.max = %s', scope.vm.max);
+    //     }
+    // }
+
+    // ExampleController.$inject = ['$scope'];
+
+    // function ExampleController($scope) {
+    //     // Injecting $scope just for comparison
+    //     var vm = this;
+
+    //     vm.min = 3;
+
+    //     console.log('CTRL: $scope.vm.min = %s', $scope.vm.min);
+    //     console.log('CTRL: $scope.vm.max = %s', $scope.vm.max);
+    //     console.log('CTRL: vm.min = %s', vm.min);
+    //     console.log('CTRL: vm.max = %s', vm.max);
+    // }
+    // <!-- example.directive.html -->
+    // <div>hello world</div>
+    // <div>max={{vm.max}}<input ng-model="vm.max"/></div>
+    // <div>min={{vm.min}}<input ng-model="vm.min"/></div>
 
 // https://github.com/angular/angular.js/wiki/Understanding-Directives
 // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
