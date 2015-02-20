@@ -1,6 +1,9 @@
+// ANGULAR / JAVASCRIPT EXAMPLE
+//
+// JAVASCRIPT OO EXAMPLE
 // Create a new object that just contains the passed in value as a member variable
-// This is a good way to simulate a class with members, figure out how to do private vars
-// and inheritance (really just sharing)
+// This is a good way to simulate a class with members, also shows how to do private vars
+// and inheritance.
 // 
 
 //  TableRow constructor function
@@ -13,10 +16,11 @@ function TableRow (text) {
   }
 }
 
+// Table Element constructor function
 function TableElement (text, inherit) {
   this.item = text;
   this.__proto__ = inherit;   // supported in Firefox, Chrome, and IE 11, 
-                              // standard in upcoming ECMA6.  THis is faster than using .prototype
+                              // standard in upcoming ECMA6.  This is faster than using .prototype
                               // http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
   this.showMe = function () {
     return '(' + this.item + ')';
@@ -39,83 +43,90 @@ console.log (firstElement.showAll());    // instance method that accesses up the
 console.log (firstElement.showLength()); // instance method that accesses up the proto chain
 console.log ('***  End  ***');
 
+// END JAVASCRIPT OO EXAMPLE
+
 
 var module = angular.module('module', [])
 
 .controller('Controller1', ['$scope', function ($scope) {
-    $scope.butter = "Test Me!!"
-    $scope.bread = new TableRow('bread')
-    //console.log ($scope.bread.content)
+  // ** You can define a controller for a div or element.
+  // ** You can also define a controller for a directive, and then inject that into other directives:
+  // ** http://www.bennadel.com/blog/2446-using-controllers-in-directives-in-angularjs.htm
+  // ** http://www.bennadel.com/blog/2709-directive-controllers-can-use-dependency-injection-in-angularjs.htm
+  // ** http://icelab.com.au/articles/an-all-in-one-directive-controller-with-angularjs/
+  $scope.butter = "Test Me!!"
+  $scope.bread = new TableRow('bread')
+  //console.log ($scope.bread.content)
 }])
 .controller('Controller2', ['$scope', function ($scope) {
-    $scope.butter = "Test Two!"
-    $scope.cream = 'Cherry Cream'
-    $scope.items = ['Ferrari', 'Sunglasses', 'Badge']
-    $scope.greenLettuce = {name: 'Green Lettuce', calories: 25}
-    $scope.darkerGreenLettuce = {name: 'Darker Green Lettuce', calories: 35}
-    
-    $scope.submit = function () {
-      $scope.items.push($scope.newItem)
-      $scope.newItem = '';
-    }
-    $scope.remove = function (index) {
-      $scope.items.splice (index, 1)
-    }  
+  $scope.butter = "Test Two!"
+  $scope.cream = 'Cherry Cream'
+  $scope.items = ['Ferrari', 'Sunglasses', 'Badge']
+  $scope.greenLettuce = {name: 'Green Lettuce', calories: 25}
+  $scope.darkerGreenLettuce = {name: 'Darker Green Lettuce', calories: 35}
+  
+  $scope.submit = function () {
+    $scope.items.push($scope.newItem)
+    $scope.newItem = '';
+  }
+  $scope.remove = function (index) {
+    $scope.items.splice (index, 1)
+  }  
 
-    $scope.messageMe = function (message) {
-      alert (message);
-    }
+  $scope.messageMe = function (message) {
+    alert (message);
+  }
 
-    $scope.$watch('butter', function(value, old) {
-      console.log ('watch triggered with new value: ' + value)
-    })
+  $scope.$watch('butter', function(value, old) {
+    console.log ('watch triggered with new value: ' + value)
+  })
 }])
 
 .controller('Controller3', ['$scope', function ($scope) {
-    $scope.butter = "I am a third level dream."
-    $scope.pepper = 99
-    $scope.info = 'I am the parent scope content, I am good!!'
-    $scope.checkBoxes = []
-    $scope.cards = [
-      {
-        face: 'Jack',
-        filter: ''
-      }, 
-      {
-        face: '125.2200',
-        filter: 'currency'
-      },
-      {
-        face: '03/15/2013',
-        filter: 'date'
-      },
-      {
-        face: '144.780000',
-        filter: 'reverse'
-      },
-      {
-        face: 'The War is Over!!',
-        filter: 'capitalize'
-      }                           
-    ]
-    $scope.lastCard = 'If you can Read me, it did not work.';
+  $scope.butter = "I am a third level dream."
+  $scope.pepper = 99
+  $scope.info = 'I am the parent scope content, I am good!!'
+  $scope.checkBoxes = []
+  $scope.cards = [
+    {
+      face: 'Jack',
+      filter: ''
+    }, 
+    {
+      face: '125.2200',
+      filter: 'currency'
+    },
+    {
+      face: '03/15/2013',
+      filter: 'date'
+    },
+    {
+      face: '144.780000',
+      filter: 'reverse'
+    },
+    {
+      face: 'The War is Over!!',
+      filter: 'capitalize'
+    }                           
+  ]
+  $scope.lastCard = 'If you can Read me, it did not work.';
 
-    $scope.inputBoxFocus = function () {
-      console.log ('input box focus')
-      $scope.openInput()
-    }
+  $scope.inputBoxFocus = function () {
+    console.log ('input box focus')
+    $scope.openInput()
+  }
 
+  $scope.focusOnMonths = false
+  $scope.openInput = function () {
+    console.log ('open 2')
+    $scope.focusOnMonths = true
+  };
+
+  $scope.closeInput = function () {
+    console.log ('close')
     $scope.focusOnMonths = false
-    $scope.openInput = function () {
-      console.log ('open 2')
-      $scope.focusOnMonths = true
-    };
-
-    $scope.closeInput = function () {
-      console.log ('close')
-      $scope.focusOnMonths = false
-      // http://plnkr.co/edit/ts3EMoaqMhjxmbD13Jcz?p=preview
-    };    
+    // http://plnkr.co/edit/ts3EMoaqMhjxmbD13Jcz?p=preview
+  };    
 }])
 
 
@@ -125,27 +136,27 @@ var module = angular.module('module', [])
 // Make a second directive that keeps a running total for all rows.  
 
 .directive('testDirective', function () {
-    // Just a very simple directive to use for scope example
-    // Returns the Directive Definition Object
-    return {
-        restrict: 'E',     // restrict to only match on element names
-        scope: {           // Isolate scope
-          lettuce: "=info" // this binds different scope based on the info attribute
-                           // In this way, you can pass in models to a 
-                           // directive that is using the isolate scope.
-                           // Best Practice: Use the scope option to create 
-                           // isolate scopes when making components that you 
-                           // want to reuse throughout your app.
-                           // This way, they will not interfere with each other.
-                           // See here: 
-                           // https://umur.io/angularjs-directives-using-isolated-scope-with-attributes/
-        },
-        // lettuce below actually refers to the passed-in model name, ie
-        // greenLettuce or darkerGreenLettuce in the controller.
-        template: "<br>Directive: {{lettuce.name}} has {{lettuce.calories}} calories."   
-                  // Normally, this would be in an
-                  // external file, but this is small so will keep it here.
-    }
+  // Just a very simple directive to use for scope example
+  // Returns the Directive Definition Object
+  return {
+      restrict: 'E',     // restrict to only match on element names
+      scope: {           // Isolate scope
+        lettuce: "=info" // this binds different scope based on the info attribute
+                         // In this way, you can pass in models to a 
+                         // directive that is using the isolate scope.
+                         // Best Practice: Use the scope option to create 
+                         // isolate scopes when making components that you 
+                         // want to reuse throughout your app.
+                         // This way, they will not interfere with each other.
+                         // See here: 
+                         // https://umur.io/angularjs-directives-using-isolated-scope-with-attributes/
+      },
+      // lettuce below actually refers to the passed-in model name, ie
+      // greenLettuce or darkerGreenLettuce in the controller.
+      template: "<br>Directive: {{lettuce.name}} has {{lettuce.calories}} calories."   
+                // Normally, this would be in an
+                // external file, but this is small so will keep it here.
+  }
 })
 .directive('anotherDir', function() {
   // Demonstrates an attribute type directive that passes in a string as the value
@@ -172,25 +183,25 @@ var module = angular.module('module', [])
   }
 })
 .directive('callOut', function () {
-    // Create a more elaborate directive that takes an Angular expression as
-    // an attribute and then invokes that expression based on an event. 
-    return {
-        scope: {           // isolate scope
-          call: "&" // The & binding allows a directive to trigger evaluation 
-                    //of an expression in the context of the parent scope, at 
-                    // a specific time.
-                    // The angular expression that this attribute is bound to
-                    // will be evaluated in the context of the parent scope.
-                    // (Controller 2, and will be messageMe)
-                    // This is shorthand notation for call: "&call"
-                    // If two way binding is used (=) this gets executed on
-                    // every link cycle.
-        },
-        template: '<button ng-click="call()">Call Out {{name}}</button>',   
-        link: function (scope, element, attrs) {
-          scope.name = attrs.name  // set a var on local scope based on attr value
-        }
-    }
+  // Create a more elaborate directive that takes an Angular expression as
+  // an attribute and then invokes that expression based on an event. 
+  return {
+      scope: {           // isolate scope
+        call: "&" // The & binding allows a directive to trigger evaluation 
+                  //of an expression in the context of the parent scope, at 
+                  // a specific time.
+                  // The angular expression that this attribute is bound to
+                  // will be evaluated in the context of the parent scope.
+                  // (Controller 2, and will be messageMe)
+                  // This is shorthand notation for call: "&call"
+                  // If two way binding is used (=) this gets executed on
+                  // every link cycle.
+      },
+      template: '<button ng-click="call()">Call Out {{name}}</button>',   
+      link: function (scope, element, attrs) {
+        scope.name = attrs.name  // set a var on local scope based on attr value
+      }
+  }
 })
 .directive('aDialog', function() {
   return {
