@@ -314,57 +314,84 @@ angular.module('module', [])
 // And then create a directive that aggregates those individual widgets in some way (such as totaling).  Let this directive
 // query all the others for their results.  With all this, I will have some very useable software components.
 
+//  What do I really need to do?  What do I really need to know?  What do I want to do?
+//  I most love to build and create but I also love to explore, discover like a scientist. And I do like to solve problems
+//  like a software detective. I love building really cool things and feature driven development. And I need to stop putting so
+//  much pressure on everything. So I need to keep working on and having great projects.  And also study projects, exercises, and sessions.
+//  What do I need to become a senior dev?  What are my strengths in the market? 
+//  A senior dev would know enough about Angular to be really productive, would know a few really good ways to get things done
+//  (The most often required features or task). They will know enough about what is commonly used to solve just about any problem,
+//  or have the basis for researching anything more that is needed. They do NOT have to know every idea out there on how to use a technology,
+//  but should be able to be highly effective and productive on projects that use it.  And especially have ideas about good ways to build the
+//  architecture, scalability, readablility, and efficiency - an expert and a leader.  So, I need to be well-practiced at 
+//  several really good ways to create directives, filters,
+//  watches, when to run digest, and know how to utilize the MVV architecture. And, of course, the understanding that comes from knowing 
+//  the whys behind it.  Thus, I need some strong Angular tools
+//  in my toolbox, and effective knowledge of the WHOLE MEAN stack, on several levels, small up through big scale projects.
+//  I believe the best way to amass this experience is through focused study sessions, practice exercises, and a series of the right kind
+//  of projects. Come up with several projects that will require using the above ideas on directives and design / architecture.
+//  Court Times is really good and can be primary.  Design a second project that is a MEAN stack mobile friendly website that helps people
+//  track daily expenses, with a monthly table view, expense categories, and several types of aggregators. Add reporting and user login.
+//  Add TDD as I work through it, in parallel, not prior. In fact, only do pre-testing if I encounter the need one day.
+//  Make this an impressive demo and get people using it.  Remember that MEAN stack is 70% of my career now, Ruby on Rails is 30%.
+//  Be very clear about my goals, be very focused and immersed (momentum and lack of distraction) for 90 minutes at a time and then go do 
+//  something else for a bit. Strive for balance in all things. Get in the mindset of SEEING great opportunity! 
+//  Also start my technology / development blog and do periodic reviews.
+//  Monemtum, work ethic.  Code is like gold!  Look at all the great financial progress and the really nice stuff - that came directly
+//  from coding, architecting, engineering and know-how!  That plus the other things I bring to the table.  It is a direct correlation.
+//  I get paid to create features, and to fix problems, but this directly comes through the code. 
+
 // A great sample directive from John Papa Style guide:  https://github.com/johnpapa/angularjs-styleguide#style-y075
 // https://github.com/johnpapa/angularjs-styleguide#style-y076
 // Generally you will have a link function or a controller but not both.
 // Controller code runs before compilation of the HTML, link runs after.
 // http://jasonmore.net/angular-js-directives-difference-controller-link/
 // https://docs.angularjs.org/guide/directive 
-    // <div my-example max="77"></div>
-    // angular
-    //     .module('app')
-    //     .directive('myExample', myExample);
+    <div my-example max="77"></div>
+    angular
+        .module('app')
+        .directive('myExample', myExample);
 
-    // function myExample() {
-    //     var directive = {
-    //         restrict: 'EA',
-    //         templateUrl: 'app/feature/example.directive.html',
-    //         scope: {
-    //             max: '='
-    //         },
-    //         link: linkFunc,
-    //         controller: ExampleController,
-    //           controllerAs: 'vm',
-    //           bindToController: true // because the scope is isolated
-    //       };
+    function myExample() {
+        var directive = {
+            restrict: 'EA',
+            templateUrl: 'app/feature/example.directive.html',
+            scope: {
+                max: '='
+            },
+            link: linkFunc,
+            controller: ExampleController,
+              controllerAs: 'vm',
+              bindToController: true // because the scope is isolated
+          };
 
-    //     return directive;
+        return directive;
 
-    //     function linkFunc(scope, el, attr, ctrl) {
-    //         console.log('LINK: scope.min = %s *** should be undefined', scope.min);
-    //         console.log('LINK: scope.max = %s *** should be undefined', scope.max);
-    //         console.log('LINK: scope.vm.min = %s', scope.vm.min);
-    //         console.log('LINK: scope.vm.max = %s', scope.vm.max);
-    //     }
-    // }
+        function linkFunc(scope, el, attr, ctrl) {
+            console.log('LINK: scope.min = %s *** should be undefined', scope.min);
+            console.log('LINK: scope.max = %s *** should be undefined', scope.max);
+            console.log('LINK: scope.vm.min = %s', scope.vm.min);
+            console.log('LINK: scope.vm.max = %s', scope.vm.max);
+        }
+    }
 
-    // ExampleController.$inject = ['$scope'];
+    ExampleController.$inject = ['$scope'];
 
-    // function ExampleController($scope) {
-    //     // Injecting $scope just for comparison
-    //     var vm = this;
+    function ExampleController($scope) {
+        // Injecting $scope just for comparison
+        var vm = this;
 
-    //     vm.min = 3;
+        vm.min = 3;
 
-    //     console.log('CTRL: $scope.vm.min = %s', $scope.vm.min);
-    //     console.log('CTRL: $scope.vm.max = %s', $scope.vm.max);
-    //     console.log('CTRL: vm.min = %s', vm.min);
-    //     console.log('CTRL: vm.max = %s', vm.max);
-    // }
-    // <!-- example.directive.html -->
-    // <div>hello world</div>
-    // <div>max={{vm.max}}<input ng-model="vm.max"/></div>
-    // <div>min={{vm.min}}<input ng-model="vm.min"/></div>
+        console.log('CTRL: $scope.vm.min = %s', $scope.vm.min);
+        console.log('CTRL: $scope.vm.max = %s', $scope.vm.max);
+        console.log('CTRL: vm.min = %s', vm.min);
+        console.log('CTRL: vm.max = %s', vm.max);
+    }
+    <!-- example.directive.html -->
+    <div>hello world</div>
+    <div>max={{vm.max}}<input ng-model="vm.max"/></div>
+    <div>min={{vm.min}}<input ng-model="vm.min"/></div>
 
 // https://github.com/angular/angular.js/wiki/Understanding-Directives
 // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
