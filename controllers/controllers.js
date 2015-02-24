@@ -316,32 +316,35 @@ angular.module('module', [])
 
 //  What do I really need to do?  What do I really need to know?  What do I want to do?
 //  I most love to build and create but I also love to explore, discover like a scientist. And I do like to solve problems
-//  like a software detective. I love building really cool things and feature driven development. And I need to stop putting so
-//  much pressure on everything. So I need to keep working on and having great projects.  And also study projects, exercises, and sessions.
+//  like a software detective. I love building really cool things and feature driven development. I need to stop putting so
+//  much pressure on everything. So I need to keep working on and doing great projects.  And also study projects, exercises, and sessions.
+//  A big part of motivation can be getting things done for others, helping out, doing a great job for your boss and your team, 
+//  and working on critical projects for your company.
 //  What do I need to become a senior dev?  What are my strengths in the market? 
 //  A senior dev would know enough about Angular to be really productive, would know a few really good ways to get things done
-//  (The most often required features or task). They will know enough about what is commonly used to solve just about any problem,
+//  (The most often required features or tasks). They will know enough about what is commonly used to solve just about any problem,
 //  or have the basis for researching anything more that is needed. They do NOT have to know every idea out there on how to use a technology,
 //  but should be able to be highly effective and productive on projects that use it.  And especially have ideas about good ways to build the
-//  architecture, scalability, readablility, and efficiency - an expert and a leader.  So, I need to be well-practiced at 
+//  architecture, scalability, readablility, and efficiency - to be an expert and a leader.  So, I need to be well-practiced at 
 //  several really good ways to create directives, filters,
 //  watches, when to run digest, and know how to utilize the MVV architecture. And, of course, the understanding that comes from knowing 
 //  the whys behind it.  Thus, I need some strong Angular tools
 //  in my toolbox, and effective knowledge of the WHOLE MEAN stack, on several levels, small up through big scale projects.
 //  I believe the best way to amass this experience is through focused study sessions, practice exercises, and a series of the right kind
 //  of projects. Come up with several projects that will require using the above ideas on directives and design / architecture.
-//  Court Times is really good and can be primary.  Design a second project that is a MEAN stack mobile friendly website that helps people
+//  CT is really good and can be primary.  Design a second project that is a MEAN stack mobile friendly website that helps people
 //  track daily expenses, with a monthly table view, expense categories, and several types of aggregators. Add reporting and user login.
-//  Add TDD as I work through it, in parallel, not prior. In fact, only do pre-testing if I encounter the need one day.
+//  Add TDD as I work through. Do as much testing and test cases as makes sense for the project, have the knowledge, see what future projects require.
 //  Make this an impressive demo and get people using it.  Remember that MEAN stack is 70% of my career now, Ruby on Rails is 30%.
 //  Be very clear about my goals, be very focused and immersed (momentum and lack of distraction) for 90 minutes at a time and then go do 
 //  something else for a bit. Strive for balance in all things. Get in the mindset of SEEING great opportunity! 
 //  Also start my technology / development blog and do periodic reviews.
-//  Monemtum, work ethic.  Code is like gold!  Look at all the great financial progress and the really nice stuff - that came directly
+//  Monemtum, work ethic.  Code is gold!  Look at all the great financial progress and the really nice stuff - that came directly
 //  from coding, architecting, engineering and know-how!  That plus the other things I bring to the table.  It is a direct correlation.
-//  I get paid to create features, and to fix problems, but this directly comes through the code. 
+//  I get paid to create features, and to fix problems, and this directly comes through the code. 
 
 // A great sample directive from John Papa Style guide:  https://github.com/johnpapa/angularjs-styleguide#style-y075
+// http://en.wikipedia.org/wiki/Anti-pattern
 // https://github.com/johnpapa/angularjs-styleguide#style-y076
 // Generally you will have a link function or a controller but not both.
 // Controller code runs before compilation of the HTML, link runs after.
