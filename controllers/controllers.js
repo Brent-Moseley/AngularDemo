@@ -328,20 +328,31 @@ angular.module('module', [])
 //  architecture, scalability, readablility, and efficiency - to be an expert and a leader.  So, I need to be well-practiced at 
 //  several really good ways to create directives, filters,
 //  watches, when to run digest, and know how to utilize the MVV architecture. And, of course, the understanding that comes from knowing 
-//  the whys behind it.  Thus, I need some strong Angular tools
+//  the whys behind it.  Exploration of the possibilities is also a very good thing. Thus, I need some strong Angular tools
 //  in my toolbox, and effective knowledge of the WHOLE MEAN stack, on several levels, small up through big scale projects.
 //  I believe the best way to amass this experience is through focused study sessions, practice exercises, and a series of the right kind
 //  of projects. Come up with several projects that will require using the above ideas on directives and design / architecture.
-//  CT is really good and can be primary.  Design a second project that is a MEAN stack mobile friendly website that helps people
-//  track daily expenses, with a monthly table view, expense categories, and several types of aggregators. Add reporting and user login.
+//  CT is really good and can be primary.  
 //  Add TDD as I work through. Do as much testing and test cases as makes sense for the project, have the knowledge, see what future projects require.
 //  Make this an impressive demo and get people using it.  Remember that MEAN stack is 70% of my career now, Ruby on Rails is 30%.
 //  Be very clear about my goals, be very focused and immersed (momentum and lack of distraction) for 90 minutes at a time and then go do 
 //  something else for a bit. Strive for balance in all things. Get in the mindset of SEEING great opportunity! 
 //  Also start my technology / development blog and do periodic reviews.
-//  Monemtum, work ethic.  Code is gold!  Look at all the great financial progress and the really nice stuff - that came directly
+//  Monemtum, work ethic, flow of thinking and work, doing what you are thinking instead of thinking about what you are doing.  
+//  Code is gold!  Look at all the great financial progress and the really nice stuff - that came directly
 //  from coding, architecting, engineering and know-how!  That plus the other things I bring to the table.  It is a direct correlation.
 //  I get paid to create features, and to fix problems, and this directly comes through the code. 
+
+//  Design a second project that is a MEAN stack mobile friendly website that helps people
+//  track daily expenses, with a monthly table view, expense categories, and several types of aggregators. Add reporting and user login.
+//  Components:  
+
+//  Small Fleet process:  Start with high level requirements. Then design of UI pages and components, definition of data and backend services needed, 
+//    define user stories and sprint tasks / backlog, move on to adding functionality, do daily standup in some form, create UI components in view 
+//    along with controller code to handle the data (start with mock data, then connect to real backend),
+//    first just read sample data then handle read and write / update in the middle layer.  Write back end for web services and data model plus business logic.
+//    Test and get user acceptance, do a release.  What is useful?
+//    Check progress at next sprint review and define user stories plus tasks for next sprint.  
 
 // A great sample directive from John Papa Style guide:  https://github.com/johnpapa/angularjs-styleguide#style-y075
 // http://en.wikipedia.org/wiki/Anti-pattern
