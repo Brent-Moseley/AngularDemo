@@ -409,6 +409,176 @@ angular.module('module', [])
     <div>max={{vm.max}}<input ng-model="vm.max"/></div>
     <div>min={{vm.min}}<input ng-model="vm.min"/></div>
 
+
+<!-- recommended -->
+<div ng-controller="Customer as customer">
+    {{ customer.name }}
+</div>
+
+
+/* avoid */
+function Customer($scope) {
+    $scope.name = {};
+    $scope.sendMessage = function() { };
+}
+/* recommended */
+function Customer() {
+    var vm = this;
+    vm.name = {};
+    vm.sendMessage = function() { };
+}
+
+/* recommended */
+function Sessions() {
+    var vm = this;
+
+    vm.gotoSession = gotoSession;
+    vm.refresh = refresh;
+    vm.search = search;
+    vm.sessions = [];
+    vm.title = 'Sessions';
+
+    ////////////
+
+    function gotoSession() {
+      /* */
+    }
+}
+
+/* recommended - put most controller logic in a service for reusability */
+function Order(creditService) {
+    var vm = this;
+    vm.checkCredit = checkCredit;
+    vm.isCreditOk;
+    vm.total = 0;
+
+    function checkCredit() {
+       return creditService.isOrderTotalOk(vm.total)
+          .then(function(isOk) { vm.isCreditOk = isOk; })
+          .catch(showServiceError);
+    };
+}
+
+<!-- avengers.html -->
+<div ng-controller="Avengers as vm">
+</div>
+/* recommended */
+
+// route-config.js
+angular
+    .module('app')
+    .config(config);
+
+function config($routeProvider) {
+    $routeProvider
+        .when('/avengers', {
+            templateUrl: 'avengers.html',
+            controller: 'Avengers',
+            controllerAs: 'vm'
+        });
+}
+
+
+/* recommended */
+
+// dataservice factory
+angular
+    .module('app.core')
+    .factory('dataservice', dataservice);
+
+dataservice.$inject = ['$http', 'logger'];
+
+function dataservice($http, logger) {
+    return {
+        getAvengers: getAvengers
+    };
+
+    function getAvengers() {
+        return $http.get('/api/maa')
+            .then(getAvengersComplete)
+            .catch(getAvengersFailed);
+
+        function getAvengersComplete(response) {
+            return response.data.results;
+        }
+
+        function getAvengersFailed(error) {
+            logger.error('XHR Failed for getAvengers.' + error.data);
+        }
+    }
+}
+
+/* recommended */
+
+// controller calling the dataservice factory
+angular
+    .module('app.avengers')
+    .controller('Avengers', Avengers);
+
+Avengers.$inject = ['dataservice', 'logger'];
+
+function Avengers(dataservice, logger) {
+    var vm = this;
+    vm.avengers = [];
+
+    activate();
+
+    function activate() {
+        return getAvengers().then(function() {
+            logger.info('Activated Avengers View');
+        });
+    }
+
+    function getAvengers() {
+        return dataservice.getAvengers()
+            .then(function(data) {
+                vm.avengers = data;
+                return vm.avengers;
+            });
+    }
+}
+
+
+/* recommended */
+
+activate();
+
+function activate() {
+    /**
+     * Step 1
+     * Ask the getAvengers function for the
+     * avenger data and wait for the promise
+     */
+    return getAvengers().then(function() {
+        /**
+         * Step 4
+         * Perform an action on resolve of final promise
+         */
+        logger.info('Activated Avengers View');
+    });
+}
+
+function getAvengers() {
+      /**
+       * Step 2
+       * Ask the data service for the data and wait
+       * for the promise
+       */
+      return dataservice.getAvengers()
+          .then(function(data) {
+              /**
+               * Step 3
+               * set the data and resolve the promise
+               */
+              vm.avengers = data;
+              return vm.avengers;
+      });
+}
+
+
+
+
+
 // https://github.com/angular/angular.js/wiki/Understanding-Directives
 // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
 // http://www.sitepoint.com/understanding-angulars-apply-digest/
