@@ -342,9 +342,11 @@ angular.module('module', [])
 //  Code is gold!  Look at all the great financial progress and the really nice stuff - that came directly
 //  from coding, architecting, engineering and know-how!  That plus the other things I bring to the table.  It is a direct correlation.
 //  I get paid to create features, and to fix problems, and this directly comes through the code. 
+//  Write more code.  Code is gold!  Do more designs, study more architecture. Help people more, help solve problems. Do more awesome projects.
 
 //  Design a second project that is a MEAN stack mobile friendly website that helps people
-//  track daily expenses, with a monthly table view, expense categories, and several types of aggregators. Add reporting and user login.
+//  track daily expenses, with a monthly table view, expense categories, and several types of aggregators with budger limits. Add reporting and user login.
+//  Create some Angular components for this first, as a way to keep up that study.
 //  Components:  
 
 //  Small Fleet process:  Start with high level requirements. Then design of UI pages and components, definition of data and backend services needed, 
