@@ -33,6 +33,21 @@ function TableElement (text, inherit) {
   }
 }
 
+// Why?   I love to build and create, to develop really cool things!  And to be awesome at what I do, to kick ass at work.
+// To enjoy a great lifestyle and balance, to enjoy great prestige and reward.
+// to be able to provide for a family and give to others
+// To play around with it more, get more practice, experiment. 
+// Career evolving and progress, my power in the market. 
+// To work on some really cool projects for people, make a key contribution
+//  Remember all the really cool places this career can take me, long term stability, very lucrative!  Inner motivation.
+//   New prestige and all that I DONT have to do to support a great lifestyle financially and wealth building!!
+//   The space.  Visual study and understanding of software, music performing, positive mindset is ALWAYS important!
+//   Be in it for and thinking of the long haul, stay focused.  Models:  Dean, Michael, Bruce, Deen, SP, Black Book, 
+//   Bible, business.  Hawaii every year, nice car, nice home, hiking and mtn biking adventures, fun things to do, growth,
+//   arts.  Focus: Javascript and related frameworks, NODE, Angular, MongoDB, Express, Ruby, MySQL, Git, Sublime Text, full stack,
+//   90k - 97k (average salary 90k), cloud computing, maybe big data, responsive, being a better developer, part time remote, stack overflow questions
+//   blog writing, presentations, Linked In  
+
 var firstTR = new TableRow('It all starts here');
 var firstElement = new TableElement ('a Cell of data', firstTR);  // inheritance happens here
 console.log ('Inheritance testing:');
