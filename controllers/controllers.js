@@ -46,7 +46,9 @@ function TableElement (text, inherit) {
 //   Bible, business.  Hawaii every year, nice car, nice home, hiking and mtn biking adventures, fun things to do, growth,
 //   arts.  Focus: Javascript and related frameworks, NODE, Angular, MongoDB, Express, Ruby, MySQL, Git, Sublime Text, full stack,
 //   90k - 97k (average salary 90k), cloud computing, maybe big data, responsive, being a better developer, part time remote, stack overflow questions
-//   blog writing, presentations, Linked In  
+//   blog writing, presentations, Linked In, great work ethic
+//   Sitting at Ra or Pita Jungle Aug 2013, reading about HTML 5, thinking about my new career, working on GeoTool.   
+//   Progress, getting stuff done, evolving.
 
 var firstTR = new TableRow('It all starts here');
 var firstElement = new TableElement ('a Cell of data', firstTR);  // inheritance happens here
