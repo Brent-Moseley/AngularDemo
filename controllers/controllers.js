@@ -43,12 +43,19 @@ function TableElement (text, inherit) {
 //   New prestige and all that I DONT have to do to support a great lifestyle financially and wealth building!!
 //   The space.  Visual study and understanding of software, music performing, positive mindset is ALWAYS important!
 //   Be in it for and thinking of the long haul, stay focused.  Models:  Dean, Michael, Bruce, Deen, SP, Black Book, 
-//   Bible, business.  Hawaii every year, nice car, nice home, hiking and mtn biking adventures, fun things to do, growth,
+//   Bible, good business.  Hawaii every year, nice car, nice home, hiking and mtn biking adventures, fun things to do, growth,
 //   arts.  Focus: Javascript and related frameworks, NODE, Angular, MongoDB, Express, Ruby, MySQL, Git, Sublime Text, full stack,
 //   90k - 97k (average salary 90k), cloud computing, maybe big data, responsive, being a better developer, part time remote, stack overflow questions
 //   blog writing, presentations, Linked In, great work ethic
 //   Sitting at Ra or Pita Jungle Aug 2013, reading about HTML 5, thinking about my new career, working on GeoTool.   
-//   Progress, getting stuff done, evolving.
+//   Progress, getting stuff done, evolving, making an essential contribution on key projects.
+//   Self-belief, super-positive attitude, practice, divide and conquer, imagine, big picture drive,
+//   take on the challenge, deeply desire and enjoy progress, passion for learning and development!  
+//   Service and duty, helping others, not taking anything for granted.
+//   Be positive and of great mindset:  Take on that challenge!!   Like building a sky-scraper or race car.
+//   I am going to make this into an outstanding, amazing, highly lucrative career, I take 100% responsibility for my own success, putting
+//   massive action into place!!
+//   Mind over body.
 
 var firstTR = new TableRow('It all starts here');
 var firstElement = new TableElement ('a Cell of data', firstTR);  // inheritance happens here
